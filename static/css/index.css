@@ -55,7 +55,7 @@ body {
     color: rgba(140, 140, 140, 1);
     margin: 0;
     padding: 0;
-    height: 200px;
+    height: 150px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -87,16 +87,24 @@ body {
 
 .main-text {
     font-family: 'Noto Sans', sans-serif;
-    font-size: 30px;
-    display: inline-block;
-    margin: auto;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
     text-align: center;
+    line-height: 293%;
 }
 
 .main-link {
-    font-family: 'Noto Sans', sans-serif;
-    font-size: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-decoration: none;
+    border: none;
+    color: green;
+}
+
+.main-link:hover {
+    color: darkgreen;
+}
+
+.general {
+    border-top: 3px solid grey;
+    border-bottom: 3px solid grey;
 }
