@@ -5,12 +5,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% block css %}
-    {% endblock %}
+    {% block css %}{% endblock %}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <title>Main</title>
+    {% block title %}{% endblock %}
 </head>
 <body>
     <header>
@@ -18,7 +17,7 @@
             <ul class="site-navigation">
                 <div class="header-title">
                     <li class="site-navigation-title">
-                        <a class="site-navigation-link" href="{% url 'index' %}">На главную</a>
+                        <a class="site-navigation-link" href="{% url 'index' %}">2G</a>
                     </li>
                 </div>
                 <div class="header-buttons">
