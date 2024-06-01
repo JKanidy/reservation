@@ -1,9 +1,12 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/css/Cabinet.css">
+    {% block css %}
+    {% endblock %}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -15,51 +18,19 @@
             <ul class="site-navigation">
                 <div class="header-title">
                     <li class="site-navigation-title">
-                        <a class="site-navigation-link" href="index">WIS</a>
+                        <a class="site-navigation-link" href="{% url 'index' %}">На главную</a>
                     </li>
                 </div>
                 <div class="header-buttons">
                     <li class="site-navigation-item">
-                        <a class="site-navigation-link" href="AboutUs">О нас</a>
-                    </li>
-                    <li class="site-navigation-item">
-                        <a class="site-navigation-link" href="Cabinet">Личный кабинет</a>
+                        <a class="site-navigation-link" href="{% url 'cabinet' %}">Личный кабинет</a>
                     </li>
                 </div>
               </ul>
         </nav> 
     </header>
     <main class="general">
-        <section>
-            <p>a</p>
-            <p>a</p>
-            <p>a</p>
-            <p>a</p>
-            <p>a</p>
-            <p>a</p>
-            <p>a</p>
-            <p>a</p>
-            <p>a</p>
-            <p>a</p>
-            <p>a</p>
-            <p>a</p>
-            <p>a</p>
-            <p>Шикарный текст про нас</p>
-            <p>a</p>
-            <p>a</p>
-            <p>a</p>
-            <p>a</p>
-            <p>a</p>
-            <p>a</p>
-            <p>a</p>
-            <p>a</p>
-            <p>a</p>
-            <p>a</p>
-            <p>a</p>
-            <p>a</p>
-            <p>a</p>
-            <p>a</p>
-        </section>
+        {% block main %}{% endblock %}
     </main>
     <footer>
         <div class="contacts-info">
