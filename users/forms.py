@@ -27,6 +27,8 @@ class UserProfileForm(UserChangeForm):
         widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Введите фамилию'}), required=False)
     username = forms.CharField(label='Логин',
         widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Введите имя пользователя', 'readonly': True}))
+    password = forms.CharField(label= 'Текущий пароль',
+        widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Пароль', 'readonly': True}))
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'username')
+        fields = ('first_name', 'last_name', 'username', 'password')
