@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponseRedirect
 from users.models import User
 from users.forms import UserLoginForm, UserRegisterForm, UserProfileForm
-from django.contrib import auth
+from django.contrib import auth, messages
 from django.urls import reverse
 
 # Create your views here.
@@ -27,6 +27,7 @@ def registration(request):
         form = UserRegisterForm(data=request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Вы успешно зарегистрировались!')
             return HttpResponseRedirect(reverse('users:login'))
     else:
         form = UserRegisterForm()
@@ -37,7 +38,7 @@ def registration(request):
 
 def cabinet(request):
     if request.method == 'POST':
-        form = UserRegisterForm(instance=request.user, data=request.POST)
+        form = UserProfileForm(instance=request.user, data=request.POST)
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse('users:cabinet'))
@@ -49,3 +50,7 @@ def cabinet(request):
                'form': form,
                }
     return render(request, 'users/cabinet.html', context)
+
+def logout(request):
+    auth.logout(request)
+    return HttpResponseRedirect(reverse('index'))

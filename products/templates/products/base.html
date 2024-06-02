@@ -19,12 +19,26 @@
                     <li class="site-navigation-title">
                         <a class="site-navigation-link" href="{% url 'index' %}">2G</a>
                     </li>
+                {% if user.is_authenticated %}
                 </div>
                 <div class="header-buttons">
                     <li class="site-navigation-item">
                         <a class="site-navigation-link" href="{% url 'users:cabinet' %}">Личный кабинет</a>
                     </li>
+                    <li class="site-navigation-item">
+                        <a class="site-navigation-link" href="{% url 'users:logout' %}">Выйти</a>
+                    </li>
+                    {% if user.is_superuser or user.is_staff %}
+                     <li class="site-navigation-item">
+                        <a class="site-navigation-link" href="{% url 'admin:index' %}">Админ панель</a>
+                    </li>
+                    {% endif %}
+                    {% else %}
+                    <li class="site-navigation-item">
+                        <a class="site-navigation-link" href="{% url 'users:login' %}">Войти</a>
+                    </li>
                 </div>
+                {% endif %}
               </ul>
         </nav> 
     </header>
