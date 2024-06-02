@@ -19,9 +19,9 @@
                     <li class="site-navigation-title">
                         <a class="site-navigation-link" href="{% url 'index' %}">2G</a>
                     </li>
-                {% if user.is_authenticated %}
                 </div>
                 <div class="header-buttons">
+                {% if user.is_authenticated %}
                     <li class="site-navigation-item">
                         <a class="site-navigation-link" href="{% url 'users:cabinet' %}">Личный кабинет</a>
                     </li>
@@ -32,15 +32,15 @@
                      <li class="site-navigation-item">
                         <a class="site-navigation-link" href="{% url 'admin:index' %}">Админ панель</a>
                     </li>
-                    {% endif %}
+                {% endif %}    
                     {% else %}
-                    <li class="site-navigation-item">
-                        <a class="site-navigation-link" href="{% url 'users:login' %}">Войти</a>
-                    </li>
+                        <li class="site-navigation-item">
+                            <a class="site-navigation-link" href="{% url 'users:login' %}">Войти</a>
+                        </li>
                 </div>
                 {% endif %}
               </ul>
-        </nav> 
+        </nav>  
     </header>
     <main class="general">
         {% block main %}{% endblock %}

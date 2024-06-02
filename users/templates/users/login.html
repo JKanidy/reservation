@@ -10,15 +10,17 @@
 {% endblock %}
 
 {% block main %}
-    <form action=" {% url 'users:login' %}" method="post">
-        {% csrf_token %}
-        {% for message in messages %}
-            {{ message }}
-        {% endfor %}
-        {{ form.as_p }}
-    <input type="submit" value="Авторизоваться">
-    <a href="{% url 'users:registration' %}">Нет аккаунта?</a>
-    </form>
+    <div class="login">
+        <form action="{% url 'users:login' %}" method="post">
+            {% csrf_token %}
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+            {{ form.as_p }}
+        <input type="submit" value="Авторизоваться">
+        <a href="{% url 'users:registration' %}">Нет аккаунта?</a>
+        </form>
+    </div>
 {% endblock %}
 
 

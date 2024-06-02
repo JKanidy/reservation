@@ -50,35 +50,16 @@ body {
 
 
 
-.contacts-info {
-    background-color: rgba(41, 41, 41, 1);
-    color: rgba(140, 140, 140, 1);
-    margin: 0;
-    padding: 0;
-    height: 150px;
+.general {
+    border-top: 3px solid grey;
+}
+
+
+
+.registration {
+    font-family: 'Noto Sans', sans-serif;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-}
-
-.people-contacts {
-    display: flex;
-    align-items: flex-end;
-    margin-right: 70px;
-}
-
-.footer-contact {
-    flex-direction: column;
-    margin-right: 70px;
-}
-
-.footer-contact-title {
-    font-family: 'Noto Sans', sans-serif;
-    font-size: 20px;
-    margin-left: 70px;
-}
-
-.footer-text {
-    font-family: 'Noto Sans', sans-serif;
-    font-size: 16px;
+    height: 750px;
 }

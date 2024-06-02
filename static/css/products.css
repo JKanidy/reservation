@@ -82,3 +82,10 @@ body {
     font-family: 'Noto Sans', sans-serif;
     font-size: 16px;
 }
+
+
+
+.general {
+    border-top: 3px solid grey;
+    border-bottom: 3px solid grey;
+}

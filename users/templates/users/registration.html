@@ -10,9 +10,11 @@
 {% endblock %}
 
 {% block main %}
-    <form action=" {% url 'users:registration' %}" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-    <input type="submit" value="Зарегистрироваться">
-    </form>
+    <div class="registration">
+        <form action=" {% url 'users:registration' %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+        <input type="submit" value="Зарегистрироваться">
+        </form>
+    </div>
 {% endblock %}

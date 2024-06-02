@@ -21,32 +21,32 @@
                     </li>
                 </div>
                 <div class="header-buttons">
+                {% if user.is_authenticated %}
                     <li class="site-navigation-item">
-                        <a class="site-navigation-link" href="{% url 'users:login' %}">Войти</a>
+                        <a class="site-navigation-link" href="{% url 'users:cabinet' %}">Личный кабинет</a>
                     </li>
+                    <li class="site-navigation-item">
+                        <a class="site-navigation-link" href="{% url 'users:logout' %}">Выйти</a>
+                    </li>
+                    {% if user.is_superuser or user.is_staff %}
+                     <li class="site-navigation-item">
+                        <a class="site-navigation-link" href="{% url 'admin:index' %}">Админ панель</a>
+                    </li>
+                {% endif %}    
+                    {% else %}
+                        <li class="site-navigation-item">
+                            <a class="site-navigation-link" href="{% url 'users:login' %}">Войти</a>
+                        </li>
                 </div>
+                {% endif %}
               </ul>
-        </nav>
+        </nav> 
     </header>
     <main class="general">
         {% block main %}{% endblock %}
     </main>
     <footer>
-        <div class="contacts-info">
-            <h3 class="footer-contact-title">Контакты</h3>
-            <div class="people-contacts">
-                <div class="footer-contact">
-                    <p class="footer-text">https://vk.com/tochnonedayn</p>
-                    <p class="footer-text">https://t.me/JKanidy</p>
-                    <p class="footer-text">jorakanidi@gmail.com</p>
-                </div>
-                <div class="footer-contact">
-                    <p class="footer-text">https://vk.com/chto_nado_t0</p>
-                    <p class="footer-text">https://t.me/chto_nado_to1</p>
-                    <p class="footer-text">Caverly228@gmail.com</p>
-                </div>
-            </div>
-        </div>
+        {% block footer %}{% endblock %}
     </footer>
 </body>
 </html>

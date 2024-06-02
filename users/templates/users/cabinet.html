@@ -10,8 +10,10 @@
 {% endblock %}
 
 {% block main %}
-    <form action=" {% url 'users:cabinet' %}" method="post">
-        {% csrf_token %}
-        {{ form.as_div }}
-    </form>
+    <div class="cabinet">
+        <form action=" {% url 'users:cabinet' %}" method="post">
+            {% csrf_token %}
+            {{ form.as_div }}
+        </form>
+    </div>
 {% endblock %}
