@@ -10,4 +10,9 @@
 {% endblock %}
 
 {% block main %}
+    <form action=" {% url 'users:login' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+    <a href="{% url 'users:registration' %}">нет аккаунта?</a>
+    </form>
 {% endblock %}
