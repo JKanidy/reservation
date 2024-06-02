@@ -23,7 +23,13 @@ def login(request):
     return render(request, 'users/login.html', context)
 
 def registration(request):
-    form = UserRegisterForm()
+    if request.method == 'POST':
+        form = UserRegisterForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('users:login'))
+    else:
+        form = UserRegisterForm()
     context = {'title': 'Регистрация',
                'form': form,
                }
