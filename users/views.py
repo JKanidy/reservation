@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponseRedirect
 from users.models import User
-from users.forms import UserLoginForm, UserRegisterForm
+from users.forms import UserLoginForm, UserRegisterForm, UserProfileForm
 from django.contrib import auth
 from django.urls import reverse
 
@@ -36,6 +36,16 @@ def registration(request):
     return render(request, 'users/registration.html', context)
 
 def cabinet(request):
+    if request.method == 'POST':
+        form = UserRegisterForm(instance=request.user, data=request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('users:cabinet'))
+        else:
+            print(form.errors)
+    else:
+        form = UserProfileForm(instance=request.user)
     context = {'title': 'Личный кабинет',
+               'form': form,
                }
     return render(request, 'users/cabinet.html', context)
