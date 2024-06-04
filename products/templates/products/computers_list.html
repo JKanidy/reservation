@@ -1,0 +1,38 @@
+# Здесь наша табличка с пк
+
+    <h1>Компьютеры</h1>
+
+    <button onclick="reserveComputer(1)" href="{% url 'products:reserve_computer' computer_name=1 %}">Computer 1</button>
+    <button onclick="reserveComputer(2)" href="{% url 'products:reserve_computer' computer_name=2 %}">Computer 2</button>
+    <button onclick="reserveComputer(3)" href="{% url 'products:reserve_computer' computer_name=3 %}">Computer 3</button>
+    <button onclick="reserveComputer(4)" href="{% url 'products:reserve_computer' computer_name=4 %}">Computer 4</button>
+    <button onclick="reserveComputer(5)" href="{% url 'products:reserve_computer' computer_name=5 %}">Computer 5</button>
+    <button onclick="reserveComputer(6)" href="{% url 'products:reserve_computer' computer_name=6 %}">Computer 6</button>
+    <button onclick="reserveComputer(7)" href="{% url 'products:reserve_computer' computer_name=7 %}">Computer 7</button>
+    <button onclick="reserveComputer(8)" href="{% url 'products:reserve_computer' computer_name=8 %}">Computer 8</button>
+    <button onclick="reserveComputer(9)" href="{% url 'products:reserve_computer' computer_name=9 %}">Computer 9</button>
+    <button onclick="reserveComputer(10)" href="{% url 'products:reserve_computer' computer_name=10 %}">Computer 10</button>
+
+    <script>
+        function reserveComputer(computerId) {
+            fetch(`/reserve/${computerId}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    computer_id: computerId
+                })
+            }).then(response => {
+                if (response.ok) {
+                    alert('Computer reserved successfully!');
+                } else {
+                    alert('Computer is already reserved.');
+                }
+            }).catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+
+

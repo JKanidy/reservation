@@ -22,10 +22,9 @@ class Computers(models.Model):
 
 
 class Reservations(models.Model):
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
-    computer_id = models.ForeignKey(Computers, on_delete=models.CASCADE)
-    reservation_date = models.DateField()
-    reservation_time = models.TimeField()
+    user_id = models.ForeignKey(to=User, on_delete=models.CASCADE)
+    computer_id = models.ForeignKey(to=Computers, on_delete=models.CASCADE)
+    created_timestamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f'Пользователь: {self.user_id} | Компьютер #: {self.computer_id}'
