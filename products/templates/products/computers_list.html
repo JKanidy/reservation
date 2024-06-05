@@ -2,16 +2,46 @@
 
     <h1>Компьютеры</h1>
 
-    <button onclick="reserveComputer(1)" href="{% url 'products:reserve_computer' computer_name=1 %}">Computer 1</button>
-    <button onclick="reserveComputer(2)" href="{% url 'products:reserve_computer' computer_name=2 %}">Computer 2</button>
-    <button onclick="reserveComputer(3)" href="{% url 'products:reserve_computer' computer_name=3 %}">Computer 3</button>
-    <button onclick="reserveComputer(4)" href="{% url 'products:reserve_computer' computer_name=4 %}">Computer 4</button>
-    <button onclick="reserveComputer(5)" href="{% url 'products:reserve_computer' computer_name=5 %}">Computer 5</button>
-    <button onclick="reserveComputer(6)" href="{% url 'products:reserve_computer' computer_name=6 %}">Computer 6</button>
-    <button onclick="reserveComputer(7)" href="{% url 'products:reserve_computer' computer_name=7 %}">Computer 7</button>
-    <button onclick="reserveComputer(8)" href="{% url 'products:reserve_computer' computer_name=8 %}">Computer 8</button>
-    <button onclick="reserveComputer(9)" href="{% url 'products:reserve_computer' computer_name=9 %}">Computer 9</button>
-    <button onclick="reserveComputer(10)" href="{% url 'products:reserve_computer' computer_name=10 %}">Computer 10</button>
+<form action="{% url 'products:reserve_computer' computer_name=1 %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Забронировать компьютер 1">
+</form>
+<form action="{% url 'products:reserve_computer' computer_name=2 %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Забронировать компьютер 2">
+</form>
+<form action="{% url 'products:reserve_computer' computer_name=3 %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Забронировать компьютер 3">
+</form>
+<form action="{% url 'products:reserve_computer' computer_name=4 %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Забронировать компьютер 4">
+</form>
+<form action="{% url 'products:reserve_computer' computer_name=5 %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Забронировать компьютер 5">
+</form>
+<form action="{% url 'products:reserve_computer' computer_name=6 %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Забронировать компьютер 6">
+</form>
+<form action="{% url 'products:reserve_computer' computer_name=7 %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Забронировать компьютер 7">
+</form>
+<form action="{% url 'products:reserve_computer' computer_name=8 %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Забронировать компьютер 8">
+</form>
+<form action="{% url 'products:reserve_computer' computer_name=9 %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Забронировать компьютер 9">
+</form>
+<form action="{% url 'products:reserve_computer' computer_name=10 %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Забронировать компьютер 10">
+</form>
 
     <script>
         function reserveComputer(computerId) {

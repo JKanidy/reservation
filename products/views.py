@@ -11,7 +11,7 @@ def index(request):
 def products(request):
     context = {
         'title': 'Забронировать',
-        'reservations': Reservations.objects.all(),
+        'reservations': Reservations.objects.filter(user_id=request.user),
     }
     return render(request, 'products/products.html', context)
 
@@ -23,4 +23,9 @@ def reserve_computer(request, computer_name):
         Reservations.objects.create(user_id=request.user, computer_id=computer)
     #else:
     #Написать, что уже забронирован пк
+    return HttpResponseRedirect(request.META['HTTP_REFERER'])
+
+def reserve_delete(request, reservation_id):
+    reservation = Reservations.objects.get(id=reservation_id)
+    reservation.delete()
     return HttpResponseRedirect(request.META['HTTP_REFERER'])
