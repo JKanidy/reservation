@@ -1,4 +1,8 @@
-# Здесь наша табличка с пк
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/computers-list.css' %}">
+<div class="comp-room-container">
+    <img class="comp-room" src="{% static 'img/computers-room.png' %}" alt="Компьютеры">
+</div>
 
     <h1>Компьютеры</h1>
 
@@ -50,27 +54,3 @@
     {% csrf_token %}
     <input type="submit" value="Забронировать компьютер 10">
 </form>
-
-    <script>
-        function reserveComputer(computerId) {
-            fetch(`/reserve/${computerId}`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    computer_id: computerId
-                })
-            }).then(response => {
-                if (response.ok) {
-                    alert('Computer reserved successfully!');
-                } else {
-                    alert('Computer is already reserved.');
-                }
-            }).catch(error => {
-                console.error('Error:', error);
-            });
-        }
-    </script>
-
-
