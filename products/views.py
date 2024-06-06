@@ -19,13 +19,13 @@ def reserve_computer(request, computer_name):
     computer = Computers.objects.get(id=computer_name)
     reservation = Reservations.objects.filter(user_id=request.user, computer_id=computer)
 
-    if not reservation.exists():
+    if not reservation.exists() and not Reservations.objects.filter(computer_id=computer).exists():
         Reservations.objects.create(user_id=request.user, computer_id=computer)
-    #else:
-    #Написать, что уже забронирован пк
+
     return HttpResponseRedirect(request.META['HTTP_REFERER'])
 
 def reserve_delete(request, reservation_id):
     reservation = Reservations.objects.get(id=reservation_id)
     reservation.delete()
+
     return HttpResponseRedirect(request.META['HTTP_REFERER'])
