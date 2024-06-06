@@ -28,4 +28,4 @@ def reserve_delete(request, reservation_id):
     reservation = Reservations.objects.get(id=reservation_id)
     reservation.delete()
 
-    return HttpResponseRedirect(request.META['HTTP_REFERER']) #1
+    return HttpResponseRedirect(request.META['HTTP_REFERER'])
