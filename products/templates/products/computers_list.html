@@ -7,17 +7,17 @@
     <h1>Компьютеры</h1>
 <p>
 <div class="buttons-inline">
-    <form action="{% url 'products:reserve_computer' computer_name=1 %}" method="post">
-        {% csrf_token %}
-        <input type="submit" value="Забронировать компьютер 1">
-    </form>
+<form action="{% url 'products:reserve_computer' computer_name=1 %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Забронировать компьютер 1">
+</form>
 </div>
 
 <div class="buttons-inline">
-    <form action="{% url 'products:reserve_delete' reservation_id=1 %}" method="post">
-        {% csrf_token %}
-        <input type="submit" value="Отменить бронь">
-    </form>
+<form action="{% url 'products:reserve_delete' reservation_id=1 %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Отменить бронь">
+</form>
 </div>
 </p>
 
