@@ -24,8 +24,13 @@ def reserve_computer(request, computer_name):
 
     return HttpResponseRedirect(request.META['HTTP_REFERER'])
 
-def reserve_delete(request, reservation_id):
-    reservation = Reservations.objects.get(id=reservation_id)
-    reservation.delete()
 
-    return HttpResponseRedirect(request.META['HTTP_REFERER'])
+def reserve_delete(request):
+    if request.method == 'POST':
+        computer_id = request.POST.get('computer_id')
+        reservation = Reservations.objects.filter(user_id=request.user, computer_id=computer_id).first()
+
+        if reservation:
+            reservation.delete()
+
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
