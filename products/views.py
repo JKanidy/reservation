@@ -16,21 +16,40 @@ def products(request):
     return render(request, 'products/products.html', context)
 
 def reserve_computer(request, computer_name):
-    computer = Computers.objects.get(id=computer_name)
-    reservation = Reservations.objects.filter(user_id=request.user, computer_id=computer)
+    computer_id = Computers.objects.get(id=computer_name)
+    user = request.user
+    reservation = Reservations.objects.filter(user_id=user, computer_id=computer_id)
 
-    if not reservation.exists() and not Reservations.objects.filter(computer_id=computer).exists():
-        Reservations.objects.create(user_id=request.user, computer_id=computer)
+    if not reservation.exists() and not Reservations.objects.filter(computer_id=computer_id).exists():
+        Reservations.objects.create(user_id=request.user, computer_id=computer_id)
+        alert = f"Вы успешно забронировали компьютер №{computer_id}"
+    else:
+        alert = "Компьютер уже забронирован"
 
-    return HttpResponseRedirect(request.META['HTTP_REFERER'])
+
+    context = {
+        'has_reservation': True,
+        'alert_message': alert,
+    }
+
+    return render(request, 'products/products.html', context)
 
 
 def reserve_delete(request):
     if request.method == 'POST':
         computer_id = request.POST.get('computer_id')
-        reservation = Reservations.objects.filter(user_id=request.user, computer_id=computer_id).first()
+        user = request.user
+        reservation = Reservations.objects.filter(user_id=user, computer_id=computer_id).first()
 
         if reservation:
             reservation.delete()
 
-    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+        alert2 = f"Вы отменили бронь компьютера №{computer_id}"
+
+        context = {
+            'has_reservation': True,
+            'alert_message2': alert2,
+        }
+
+    return render(request, 'products/products.html', context)
+

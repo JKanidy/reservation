@@ -4,7 +4,17 @@
     <img class="comp-room" src="{% static 'img/computers-room.png' %}" alt="Компьютеры">
 </div>
 
-    <h1>Компьютеры</h1>
+<script>
+    {% if alert_message %}
+        alert("{{ alert_message }}");
+    {% endif %}
+
+    {% if alert_message2 %}
+        alert("{{ alert_message2 }}");
+    {% endif %}
+</script>
+
+    <h1>Выберите компьютер, который хотите забронировать:</h1>
 <p>
 <div class="buttons-inline">
 <form action="{% url 'products:reserve_computer' computer_name=1 %}" method="post">
@@ -12,7 +22,7 @@
     <input type="submit" value="Забронировать компьютер 1">
 </form>
 </div>
-
+{% if has_reservation == True %}
 <div class="buttons-inline">
 <form method="post" action="{% url 'products:reserve_delete' %}">
     {% csrf_token %}
@@ -20,5 +30,167 @@
     <button type="submit">Удалить бронирование</button>
 </form>
 </div>
+{% endif %}
 </p>
 
+<p>
+<div class="buttons-inline">
+<form action="{% url 'products:reserve_computer' computer_name=2 %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Забронировать компьютер 2">
+</form>
+</div>
+{% if has_reservation == True %}
+<div class="buttons-inline">
+<form method="post" action="{% url 'products:reserve_delete' %}">
+    {% csrf_token %}
+    <input type="hidden" name="computer_id" value="{{ 2 }}">
+    <button type="submit">Удалить бронирование</button>
+</form>
+</div>
+{% endif %}
+</p>
+
+<p>
+<div class="buttons-inline">
+<form action="{% url 'products:reserve_computer' computer_name=3 %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Забронировать компьютер 3">
+</form>
+</div>
+{% if has_reservation == True %}
+<div class="buttons-inline">
+<form method="post" action="{% url 'products:reserve_delete' %}">
+    {% csrf_token %}
+    <input type="hidden" name="computer_id" value="{{ 3 }}">
+    <button type="submit">Удалить бронирование</button>
+</form>
+</div>
+{% endif %}
+</p>
+
+<p>
+<div class="buttons-inline">
+<form action="{% url 'products:reserve_computer' computer_name=4 %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Забронировать компьютер 4">
+</form>
+</div>
+{% if has_reservation == True %}
+<div class="buttons-inline">
+<form method="post" action="{% url 'products:reserve_delete' %}">
+    {% csrf_token %}
+    <input type="hidden" name="computer_id" value="{{ 4 }}">
+    <button type="submit">Удалить бронирование</button>
+</form>
+</div>
+{% endif %}
+</p>
+
+<p>
+<div class="buttons-inline">
+<form action="{% url 'products:reserve_computer' computer_name=5 %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Забронировать компьютер 5">
+</form>
+</div>
+{% if has_reservation == True %}
+<div class="buttons-inline">
+<form method="post" action="{% url 'products:reserve_delete' %}">
+    {% csrf_token %}
+    <input type="hidden" name="computer_id" value="{{ 5 }}">
+    <button type="submit">Удалить бронирование</button>
+</form>
+</div>
+{% endif %}
+</p>
+
+<p>
+<div class="buttons-inline">
+<form action="{% url 'products:reserve_computer' computer_name=6 %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Забронировать компьютер 6">
+</form>
+</div>
+{% if has_reservation == True %}
+<div class="buttons-inline">
+<form method="post" action="{% url 'products:reserve_delete' %}">
+    {% csrf_token %}
+    <input type="hidden" name="computer_id" value="{{ 6 }}">
+    <button type="submit">Удалить бронирование</button>
+</form>
+</div>
+{% endif %}
+</p>
+
+<p>
+<div class="buttons-inline">
+<form action="{% url 'products:reserve_computer' computer_name=7 %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Забронировать компьютер 7">
+</form>
+</div>
+{% if has_reservation == True %}
+<div class="buttons-inline">
+<form method="post" action="{% url 'products:reserve_delete' %}">
+    {% csrf_token %}
+    <input type="hidden" name="computer_id" value="{{ 7 }}">
+    <button type="submit">Удалить бронирование</button>
+</form>
+</div>
+{% endif %}
+</p>
+
+<p>
+<div class="buttons-inline">
+<form action="{% url 'products:reserve_computer' computer_name=8 %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Забронировать компьютер 8">
+</form>
+</div>
+{% if has_reservation == True %}
+<div class="buttons-inline">
+<form method="post" action="{% url 'products:reserve_delete' %}">
+    {% csrf_token %}
+    <input type="hidden" name="computer_id" value="{{ 8 }}">
+    <button type="submit">Удалить бронирование</button>
+</form>
+</div>
+{% endif %}
+</p>
+
+<p>
+<div class="buttons-inline">
+<form action="{% url 'products:reserve_computer' computer_name=9 %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Забронировать компьютер 9">
+</form>
+</div>
+{% if has_reservation == True %}
+<div class="buttons-inline">
+<form method="post" action="{% url 'products:reserve_delete' %}">
+    {% csrf_token %}
+    <input type="hidden" name="computer_id" value="{{ 9 }}">
+    <button type="submit">Удалить бронирование</button>
+</form>
+</div>
+{% endif %}
+</p>
+
+<p>
+<div class="buttons-inline">
+<form action="{% url 'products:reserve_computer' computer_name=10 %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Забронировать компьютер 10">
+</form>
+</div>
+{% if has_reservation == True %}
+<div class="buttons-inline">
+<form method="post" action="{% url 'products:reserve_delete' %}">
+    {% csrf_token %}
+    <input type="hidden" name="computer_id" value="{{ 10 }}">
+    <button type="submit">Удалить бронирование</button>
+</form>
+</div>
+{% endif %}
+</p>
