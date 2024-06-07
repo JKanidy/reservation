@@ -40,11 +40,12 @@ def reserve_delete(request):
         computer_id = request.POST.get('computer_id')
         user = request.user
         reservation = Reservations.objects.filter(user_id=user, computer_id=computer_id).first()
-
+        alert2 = f"Вы не можете отменить бронь компьютера №{computer_id}"
         if reservation:
             reservation.delete()
+            alert2 = f"Вы отменили бронь компьютера №{computer_id}"
 
-        alert2 = f"Вы отменили бронь компьютера №{computer_id}"
+
 
         context = {
             'has_reservation': True,
