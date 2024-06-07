@@ -14,7 +14,10 @@
     {% endif %}
 </script>
 
-    <h1>Выберите компьютер, который хотите забронировать:</h1>
+    <div class="title-container">
+        <h1 class="comp-title">Выберите компьютер, который хотите забронировать</h1>
+    </div>
+
 <p>
 <div class="buttons-inline">
 <form action="{% url 'products:reserve_computer' computer_name=1 %}" method="post">

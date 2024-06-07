@@ -11,3 +11,31 @@
 .buttons-inline {
     display: inline-block;
 }
+
+.comp-title {
+    font-size: 32px;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.title-container {
+    display: flex;
+    justify-content: center;
+}
+
+input {
+    background: rgba(200, 255, 174, 1);
+    padding: 10px;
+    margin-left: 50px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+button {
+    background: rgba(255, 172, 160, 1);
+    padding: 10px;
+    margin-left: 50px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: 'Noto Sans', sans-serif;
+}
