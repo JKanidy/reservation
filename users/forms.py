@@ -22,13 +22,13 @@ class UserRegisterForm(UserCreationForm):
 
 class UserProfileForm(UserChangeForm):
     first_name = forms.CharField(label='Имя',
-        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Введите имя'}), required=False)
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Имя', 'readonly': True}), required=False)
     last_name = forms.CharField(label='Фамилия',
-        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Введите фамилию'}), required=False)
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Фамилия', 'readonly': True}), required=False)
     username = forms.CharField(label='Логин',
         widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Введите имя пользователя', 'readonly': True}))
-    password = forms.CharField(label= 'Сменить пароль',
-        widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Пароль', 'readonly': True}))
+    password = forms.CharField(label= 'Ваш пароль',
+        widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Пароль'}))
     class Meta:
         model = User
         fields = ('first_name', 'last_name', 'username', 'password')
